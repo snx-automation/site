@@ -5,19 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Silicon Nexus | Circuits & Code - Where Engineers Build Together</title>
 <meta name="description" content="Silicon Nexus | Circuits & Code is a community and GitHub organization for engineers to collaborate on projects, share ideas and resources, write code, design circuits, and study together. Nexus Study Lab is one of the tools we've built along the way.">
-<!-- Favicon -->
-<!-- Favicons -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://github.com/snx-automation/site/blob/main/screenshots/icon1.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://github.com/snx-automation/site/blob/main/screenshots/icon1.png">
-<link rel="icon" href="https://github.com/snx-automation/site/blob/main/screenshots/icon1.png" sizes="any">
-<link rel="icon" type="image/svg+xml" href="https://github.com/snx-automation/site/blob/main/screenshots/icon1.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://github.com/snx-automation/site/blob/main/screenshots/icon1.png">
-<link rel="mask-icon" href="https://github.com/snx-automation/site/blob/main/screenshots/icon1.png" color="#8A90FF">
-<link rel="manifest" href="/site2.webmanifest">
 
-<!-- Windows tiles -->
-<meta name="msapplication-TileColor" content="#0D0E18">
-<meta name="msapplication-config" content="/browserconfig.xml">
+ <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icon1.png">
+    <link rel="shortcut icon" href="icon1.png">
+    <link rel="apple-touch-icon" href="icon1.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quietplace.space/">
+    <meta property="og:title" content="Silicon Nexus | Circuits & Code">
+    <meta property="og:description" content="A community and GitHub organization for engineers to collaborate on projects, share ideas and resources, write code, design circuits, and study together. Nexus Study Lab is one of the tools we've built along the way.">
+    <meta property="og:image" content="https://quietplace.space/icon1.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -375,10 +374,23 @@
   .product-card.is-future{
     align-items:center; justify-content:center; text-align:center;
     padding:50px 30px; gap:12px; border-style:dashed;
+    cursor:pointer;
   }
-  .product-card.is-future .ring{ width:32px; height:32px; border-width:1.5px; color:var(--ink-faint); }
+  .product-card.is-future .ring{ width:32px; height:32px; border-width:1.5px; color:var(--ink-faint); transition:color .25s, border-color .25s; }
   .product-card.is-future h3{ font-size:18px; font-family:'Inter',sans-serif; font-weight:600; color:var(--ink-soft); }
   .product-card.is-future p{ color:var(--ink-faint); font-size:14px; max-width:280px; }
+  .product-card.is-future:hover{ border-color:var(--accent); }
+  .product-card.is-future:hover .ring{ color:var(--accent); }
+  .product-card.is-future:hover h3{ color:var(--ink); }
+
+  .products-more{ text-align:center; margin-top:36px; }
+  .products-more a{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:14.5px; font-weight:600; color:var(--ink-soft);
+  }
+  .products-more a:hover{ color:var(--accent-ink); }
+  .products-more svg{ transition:transform .25s var(--ease); }
+  .products-more a:hover svg{ transform:translate(2px,-2px); }
 
   /* ============ SHOWCASE ============ */
   .showcase{ background:var(--accent-soft-2); }
@@ -460,6 +472,7 @@
   .problem-item span{ font-size:16px; color:var(--ink); font-weight:500; }
   .why-copy h2{ font-size:clamp(28px,3.6vw,38px); line-height:1.18; margin-bottom:18px; }
   .why-copy p{ color:var(--ink-soft); font-size:16.5px; line-height:1.7; margin-bottom:16px; }
+  .problem-title{ font-size:22px; margin-bottom:24px; }
 
   /* ============ COMMUNITY (dark) ============ */
   .community{
@@ -573,7 +586,6 @@
   .foot-socials{ display:flex; gap:16px; }
   .foot-socials a{ color:var(--ink-faint); }
   .foot-socials a:hover{ color:var(--accent); }
- .problem-title{ font-size:22px; margin-bottom:24px; }
 </style>
 </head>
 <body>
@@ -584,8 +596,8 @@
       <a href="#home" class="nav-logo"><span class="ring"></span>Silicon Nexus</a>
       <div class="nav-links">
         <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="https://quietplace.space/streak.html">Study Lab</a>
+        <a href="projects.html">Projects</a>
+        <a href="#features">Study Lab</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#community">Community</a>
         <a href="#faq">FAQ</a>
@@ -602,8 +614,8 @@
   <div class="mobile-panel" id="mobilePanel">
     <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
     <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="https://quietplace.space/streak.html">Study Lab</a>
+    <a href="projects.html">Projects</a>
+    <a href="#features">Study Lab</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#community">Community</a>
     <a href="#faq">FAQ</a>
@@ -614,9 +626,9 @@
     <div class="hero-media hero-fallback" id="heroMedia">
       <!-- Replace this block with your own background: -->
            <img src="download.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
-           
+
            <!-- <video autoplay muted loop playsinline><source src="hero-bg.webm" type="video/webm"></video> -->
-           
+
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-inner">
@@ -624,7 +636,7 @@
       <h1>Build together. <em>Engineer</em> together.</h1>
       <p class="sub">Silicon Nexus | Circuits & Code is a community and open-source organization where engineers collaborate on projects, trade ideas, share resources, write code, design circuits, and study side by side. Nexus Study Lab - our focus timer - is one of the things we've built along the way.</p>
       <div class="hero-actions">
-        <a href="#products" class="btn btn-primary">See What We Build</a>
+        <a href="projects.html" class="btn btn-primary">See What We Build</a>
         <a href="#community" class="btn btn-glass">Join Discord</a>
       </div>
     </div>
@@ -667,10 +679,11 @@
             <span class="product-status"><span class="ring"></span>Live · Discord Bot</span>
             <h3>NexusAI</h3>
             <p>The bot running the show inside Silicon Nexus - engagement pulses, utilities, and moderation tools built for the server.</p>
-            <a href="https://discord.com/oauth2/authorize?client_id=1419232338792939606" target="_blank" rel="noopener" class="product-link">Meet the bot <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://discord.gg/SNhzuKCvhw" target="_blank" rel="noopener" class="product-link">Meet the bot <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
         </div>
-<div class="product-card reveal">
+
+        <div class="product-card reveal">
           <div class="product-shot pshot-3">
             <img src="screenshots/EngineLab.png" alt="Engine Lab screenshot" onerror="this.remove()">
             <span class="product-tag">Engine Lab</span>
@@ -678,31 +691,35 @@
           <div class="product-body">
             <span class="product-status"><span class="ring"></span>Live · Browser Driving Sim</span>
             <h3>Engine Lab</h3>
-            <p>A browser-based driving sim built around real car sound — every engine note, gear shift, and tire screech modeled and playable. Accelerator, brake, and clutch controls let you drive the sound itself, not just the car.</p>
+            <p>A browser-based driving sim built around real car sound - every engine note, gear shift, and tire screech modeled and playable. Accelerator, brake, and clutch controls let you drive the sound itself, not just the car.</p>
             <a href="https://snx-automation.github.io/EngineLab/" target="_blank" rel="noopener" class="product-link">Play Engine Lab <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
         </div>
 
         <div class="product-card reveal">
           <div class="product-shot pshot-4">
-            <img src="screenshots/signal-particles-1784093039170.png" alt="Rexona screenshot" onerror="this.remove()">
+            <img src="screenshots/rexona.png" alt="Rexona screenshot" onerror="this.remove()">
             <span class="product-tag">RESONIX</span>
           </div>
           <div class="product-body">
             <span class="product-status"><span class="ring"></span>Live · Music Visualizer</span>
             <h3>RESONIX</h3>
-            <p>A real-time music visualizer that runs entirely in your browser. Share a tab with "Share tab audio" enabled and watch it react instantly — everything is processed locally, so no audio ever leaves your device.</p>
+            <p>A real-time music visualizer that runs entirely in your browser. Share a tab with "Share tab audio" enabled and watch it react instantly - everything is processed locally, so no audio ever leaves your device.</p>
             <a href="https://snx-automation.github.io/signal/" target="_blank" rel="noopener" class="product-link">Launch RESONIX <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
         </div>
 
-        <div class="product-card is-future reveal">
+        <a href="projects.html" class="product-card is-future reveal">
           <span class="ring"></span>
           <h3>More on the way</h3>
-          <p>This lineup grows as the community ships. New projects get added here first.</p>
-        </div>
+          <p>This lineup grows as the community ships. See the full catalog and what's coming next.</p>
+        </a>
 
       </div>
+
+      <p class="products-more reveal">
+        <a href="projects.html">View all projects <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </p>
     </div>
   </section>
 
@@ -839,7 +856,7 @@
   </section> -->
 
   <!-- ============ WHY ============ -->
-<section id="why">
+  <section id="why">
     <div class="wrap why">
       <div class="problem-list-wrap reveal">
         <span class="eyebrow"><span class="ring"></span>Known Issues</span>
@@ -861,6 +878,7 @@
       </div>
     </div>
   </section>
+
   <!-- ============ COMMUNITY ============ -->
   <section id="community" class="community">
     <div class="wrap">
@@ -907,7 +925,7 @@
           <span class="road-status">Current development</span>
           <div class="road-items">
             <div class="road-row"><h4>Study Rooms</h4><p>- shared live sessions</p></div>
-            <div class="road-row"><h4>AI Assistant</h4><p>-in-app study help</p></div>
+            <div class="road-row"><h4>AI Assistant</h4><p>—-in-app study help</p></div>
           </div>
         </div>
         <div class="road-group is-future">
@@ -980,16 +998,16 @@
         </div>
         <div class="foot-cols">
           <div class="foot-col">
-            <h5>Products</h5>
-            <a href="#products">All Products</a>
+            <h5>Projects</h5>
+            <a href="projects.html">All Projects</a>
             <a href="https://quietplace.space/app.html" target="_blank" rel="noopener">Nexus Study Lab ↗</a>
             <a href="https://discord.gg/SNhzuKCvhw" target="_blank" rel="noopener">NexusAI</a>
-            <a href="#products">Engine Lab</a>
-            <a href="#products">RESONIX</a>
+            <a href="https://snx-automation.github.io/EngineLab/" target="_blank" rel="noopener">Engine Lab ↗</a>
+            <a href="https://snx-automation.github.io/signal/" target="_blank" rel="noopener">RESONIX ↗</a>
           </div>
           <div class="foot-col">
             <h5>Nexus Study Lab</h5>
-            <a href="https://quietplace.space/streak.html">Features</a>
+            <a href="#features">Features</a>
             <a href="#showcase">Screenshots</a>
             <a href="#roadmap">Roadmap</a>
             <a href="https://quietplace.space/app.html" target="_blank" rel="noopener">Open Study App ↗</a>
@@ -1004,7 +1022,7 @@
             <h5>Legal</h5>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
-            <a href="mailto:xyz@gmail.com">Contact</a>
+            <a href="mailto:siliconnexuslab@gmail.com">Contact</a>
           </div>
         </div>
       </div>
@@ -1039,7 +1057,7 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => io.observe(el));
 
-// ---- showcase carousel (only runs if the section exists) ----
+  // ---- showcase carousel (only runs if the section exists) ----
   const showcaseStage = document.querySelector('.showcase-stage');
   if (showcaseStage) {
     const slides = Array.from(document.querySelectorAll('.screen-slide'));
